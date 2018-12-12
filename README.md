@@ -5,7 +5,7 @@
 2. You will need access to private keys if you wish to update deployed state
 3. The state used by Terraform is stored in s3 both for Networking and K8
 
-[Dashboard UI](api.labroots.inkeystone.com/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/)
+[Dashboard UI](https://api.labroots.inkeystone.com/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/)
 
 ## What is an "Infrastructure Fabric"?
 
