@@ -1,29 +1,9 @@
-# Reference Infrastructure Fabric
+# FABRIC: AWS K8
 
-[![Build Status](https://travis-ci.org/datawire/reference-infrastructure-fabric.svg?branch=master)](https://travis-ci.org/datawire/reference-infrastructure-fabric)
-
-Bootstrapping a microservices system is often a very difficult process for many small teams because there is a diverse ecosystem of tools that span a number of technical disciplines from operations to application development. This repository is intended for a single developer on a small team that meets all of the following criteria:
-
-1. Building a simple modern web application using a service-oriented or microservices approach.
-
-2. Using Amazon Web Services ("AWS") because of its best-in-class commodity "run-and-forget" infrastructure such as RDS Aurora, PostgreSQL, Elasticsearch or Redis.
-
-3. Limited operations experience or budget and wants to "get going quickly" but with a reasonably architected foundation that will not cause major headaches two weeks down the road because the foundation "was just a toy".
-
-If all the above criteria match then this project is for you and you should keep reading because this guide will help you get setup with a production-quality Kubernetes cluster on AWS in about 10 to 15 minutes!
-
-## What do you mean by "simple modern web application"?
-
-### Simple
-
-The concept of simplicity is a subjective, but for the purpose of this architecture "simple" means that the application conforms to two constraints:
-
-1. Business logic, for example, a REST API is containerized and run on the Kubernetes cluster.
-2. Persistence is offloaded to an external service (e.g. Amazon RDS).
-
-### Modern
-
-Similarly the term "modern" is ambiguous, but for the purpose of this architecture "modern" means that the application has a very narrow downtime constraint. We will be targeting an application that is designed for at least "four nines" of availability. Practically speaking, this means the app can be updated or modified without downtime.
+## PRE-READ:
+1. K8 infrastructure defined here is deployed at api.labroots.inkeystone.com
+2. You will need access to private keys if you wish to update deployed state
+3. The state used by Terraform is stored in s3 both for Networking and K8
 
 ## What is an "Infrastructure Fabric"?
 
@@ -35,9 +15,6 @@ Infrastructure fabric is the term we use to describe the composite of a dedicate
 
 To keep this infrastructure fabric simple, but also robust we are going to make some opinionated design decisions.
 
-### Repository Structure
-
-The GitHub repository is setup so that each fabric is defined in an independent Git branch. This allows for multiple fabrics to exist in parallel and for concurrent modification of the fabrics. Why might you want multiple fabrics? A couple reasons, it allows multiple environments (e.g. develop, test, staging, prod) and it enables other types of useful separation, for example, Alice and Bob can have their own cloud-deployed fabrics for whatever purpose they need.
 
 ### Base Network (VPC)
 
