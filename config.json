@@ -1,6 +1,10 @@
 {
-  "domain_name": "${YOUR_DOMAIN_HERE}",
-  "fabric_availability_zones": [],
-  "fabric_name": "example",
-  "fabric_region": "us-east-2"
+    "domain_name": "inkeystone.com",
+    "fabric_availability_zones": [
+        "us-east-2a",
+        "us-east-2b",
+        "us-east-2c"
+    ],
+    "fabric_name": "labroots",
+    "fabric_region": "us-east-2"
 }
