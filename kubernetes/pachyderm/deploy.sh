@@ -11,4 +11,5 @@ export AWS_REGION="us-east-2"
 # $ aws s3api create-bucket --bucket ${BUCKET_NAME} --region ${AWS_REGION} --create-bucket-configuration LocationConstraint=${AWS_REGION}
 # aws s3api list-buckets --query 'Buckets[].Name'
 
+# Get --iam-role role for nodes in k8 cluster
 pachctl deploy amazon ${BUCKET_NAME} ${AWS_REGION} ${STORAGE_SIZE} --dynamic-etcd-nodes=1 --iam-role arn:aws:iam::846597713655:role/nodes.labroots.inkeystone.com
