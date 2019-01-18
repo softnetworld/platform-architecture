@@ -14,7 +14,7 @@ locals = {
   subnet_us-east-2a_id         = "${aws_subnet.us-east-2a-labroots-inkeystone-com.id}"
   subnet_us-east-2b_id         = "${aws_subnet.us-east-2b-labroots-inkeystone-com.id}"
   subnet_us-east-2c_id         = "${aws_subnet.us-east-2c-labroots-inkeystone-com.id}"
-  vpc_id                       = "vpc-0ef5e6a5916de5eac"
+  vpc_id                       = "vpc-01032ca78b5de3d4f"
 }
 
 output "cluster_name" {
@@ -78,7 +78,7 @@ output "subnet_us-east-2c_id" {
 }
 
 output "vpc_id" {
-  value = "vpc-0ef5e6a5916de5eac"
+  value = "vpc-01032ca78b5de3d4f"
 }
 
 provider "aws" {
@@ -271,11 +271,11 @@ resource "aws_launch_configuration" "nodes-labroots-inkeystone-com" {
 resource "aws_route" "0-0-0-0--0" {
   route_table_id         = "${aws_route_table.labroots-inkeystone-com.id}"
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = "igw-0b7c3eadd50946d21"
+  gateway_id             = "igw-027f31d0eb6439017"
 }
 
 resource "aws_route_table" "labroots-inkeystone-com" {
-  vpc_id = "vpc-0ef5e6a5916de5eac"
+  vpc_id = "vpc-01032ca78b5de3d4f"
 
   tags = {
     KubernetesCluster                               = "labroots.inkeystone.com"
@@ -302,7 +302,7 @@ resource "aws_route_table_association" "us-east-2c-labroots-inkeystone-com" {
 
 resource "aws_security_group" "masters-labroots-inkeystone-com" {
   name        = "masters.labroots.inkeystone.com"
-  vpc_id      = "vpc-0ef5e6a5916de5eac"
+  vpc_id      = "vpc-01032ca78b5de3d4f"
   description = "Security group for masters"
 
   tags = {
@@ -314,7 +314,7 @@ resource "aws_security_group" "masters-labroots-inkeystone-com" {
 
 resource "aws_security_group" "nodes-labroots-inkeystone-com" {
   name        = "nodes.labroots.inkeystone.com"
-  vpc_id      = "vpc-0ef5e6a5916de5eac"
+  vpc_id      = "vpc-01032ca78b5de3d4f"
   description = "Security group for nodes"
 
   tags = {
@@ -433,7 +433,7 @@ resource "aws_security_group_rule" "ssh-external-to-node-0-0-0-0--0" {
 }
 
 resource "aws_subnet" "us-east-2a-labroots-inkeystone-com" {
-  vpc_id            = "vpc-0ef5e6a5916de5eac"
+  vpc_id            = "vpc-01032ca78b5de3d4f"
   cidr_block        = "10.10.32.0/19"
   availability_zone = "us-east-2a"
 
@@ -447,7 +447,7 @@ resource "aws_subnet" "us-east-2a-labroots-inkeystone-com" {
 }
 
 resource "aws_subnet" "us-east-2b-labroots-inkeystone-com" {
-  vpc_id            = "vpc-0ef5e6a5916de5eac"
+  vpc_id            = "vpc-01032ca78b5de3d4f"
   cidr_block        = "10.10.64.0/19"
   availability_zone = "us-east-2b"
 
@@ -461,7 +461,7 @@ resource "aws_subnet" "us-east-2b-labroots-inkeystone-com" {
 }
 
 resource "aws_subnet" "us-east-2c-labroots-inkeystone-com" {
-  vpc_id            = "vpc-0ef5e6a5916de5eac"
+  vpc_id            = "vpc-01032ca78b5de3d4f"
   cidr_block        = "10.10.96.0/19"
   availability_zone = "us-east-2c"
 

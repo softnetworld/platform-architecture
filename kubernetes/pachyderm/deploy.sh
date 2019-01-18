@@ -5,11 +5,34 @@ export BUCKET_NAME="inkeystone-com-pachd"
 export STORAGE_SIZE="100"
 export AWS_REGION="us-east-2"
 
-# If AWS_REGION is us-east-1.
+# # If AWS_REGION is us-east-1.
 # $ aws s3api create-bucket --bucket ${BUCKET_NAME} --region ${AWS_REGION}
-# If AWS_REGION is outside of us-east-1.
-# $ aws s3api create-bucket --bucket ${BUCKET_NAME} --region ${AWS_REGION} --create-bucket-configuration LocationConstraint=${AWS_REGION}
+# # If AWS_REGION is outside of us-east-1.
+# # # $ aws s3api create-bucket --bucket ${BUCKET_NAME} --region ${AWS_REGION} --create-bucket-configuration LocationConstraint=${AWS_REGION}
 # aws s3api list-buckets --query 'Buckets[].Name'
 
 # Get --iam-role role for nodes in k8 cluster
 pachctl deploy amazon ${BUCKET_NAME} ${AWS_REGION} ${STORAGE_SIZE} --dynamic-etcd-nodes=1 --iam-role arn:aws:iam::846597713655:role/nodes.labroots.inkeystone.com
+
+# todo: add a terraform script to do this
+
+# {
+#   "Effect": "Allow",
+#   "Action": [
+#     "s3:ListBucket"
+#   ],
+#   "Resource": [
+#     "arn:aws:s3:::inkeystone-com-pachd"
+#   ]
+# },
+# {
+#   "Effect": "Allow",
+#   "Action": [
+#     "s3:PutObject",
+#     "s3:GetObject",
+#     "s3:DeleteObject"
+#   ],
+#   "Resource": [
+#     "arn:aws:s3:::inkeystone-com-pachd/*"
+#   ]
+# }

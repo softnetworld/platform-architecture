@@ -1,18 +1,20 @@
 # Makefile
 
+# update to reflect different fabric
+
 .PHONY: apply plan sanity-check test-setup test
 
 tools:
-	git checkout master -- requirements.txt
-	git checkout master -- bin/*
-	git checkout master -- test/*
+# 	git checkout master -- requirements.txt
+# 	git checkout master -- bin/*
+# 	git checkout master -- test/*
 
 plan:
 	terraform get --update=true
 	terraform plan --var-file=config.json --out plan.out
 
-apply:
-	terraform apply plan.out
+# apply:
+# 	terraform apply plan.out
 
 sanity-check: venv
 	venv/bin/python bin/sanity_check.py
@@ -32,6 +34,7 @@ test: tools
 venv: venv/bin/activate
 
 venv/bin/activate: tools requirements.txt
-	test -d venv || virtualenv venv --quiet --python python3
-	venv/bin/pip install -Uqr requirements.txt
-	touch venv/bin/activate
+	source activate py36
+	# test -d venv || virtualenv venv --quiet --python python3
+	# venv/bin/pip install -Uqr requirements.txt
+	# touch venv/bin/activate
