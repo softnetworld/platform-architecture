@@ -1,0 +1,43 @@
+{
+  "id": "/kubernetes-haproxy",
+  "acceptedResourceRoles": [
+    "slave_public"
+  ],
+  "cmd": "/usr/local/sbin/haproxy -f /haproxy/haproxy.conf",
+  "constraints": [
+    [
+      "hostname",
+      "UNIQUE"
+    ]
+  ],
+  "container": {
+    "type": "MESOS",
+    "volumes": [
+      {
+        "containerPath": "/haproxy",
+        "hostPath": "/opt/haproxy",
+        "mode": "RO"
+      }
+    ],
+    "docker": {
+      "image": "haproxy:1.7",
+      "forcePullImage": false,
+      "parameters": []
+    }
+  },
+  "cpus": 0.1,
+  "instances": 1,
+  "mem": 128,
+  "networks": [
+    {
+      "mode": "host"
+    }
+  ],
+  "portDefinitions": [
+    {
+      "protocol": "tcp",
+      "port": 6443
+    }
+  ],
+  "requirePorts": true
+}

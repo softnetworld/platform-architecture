@@ -1,0 +1,5 @@
+{
+  "marathon-lb": {
+    "instances": 3.0, "mem": 2048.0
+   }
+}

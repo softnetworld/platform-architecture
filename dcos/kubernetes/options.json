@@ -1,0 +1,15 @@
+{
+    "service": {
+       "service_account": "kubernetes",
+       "service_account_secret": "kubernetes/sa"
+  },
+    "kubernetes": {
+    "high_availability": true,
+    "node_count": 4,
+    "reserved_resources": {
+      "kube_cpus": 20,
+      "kube_mem": 20000,
+      "kube_disk": 10500
+       }
+    }
+}
