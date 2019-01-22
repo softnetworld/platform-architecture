@@ -1,4 +1,5 @@
 
+
 variable "dcos_install_mode" {
   description = "specifies which type of command to execute. Options: install or upgrade"
   default     = "install"
