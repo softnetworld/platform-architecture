@@ -1,5 +1,5 @@
 // file: main.tf
-
+//
 provider "aws" {
   region = "${var.fabric_region}"
 }
