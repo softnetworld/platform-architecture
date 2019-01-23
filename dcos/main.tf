@@ -30,6 +30,11 @@ variable "tags" {
   default     = {}
 }
 
+variable "admin_ips" {
+  description = "Admin Ips"
+  type        = "string"
+}
+
 module "dcos" {
   source  = "dcos-terraform/dcos/aws"
   version = "~> 0.1"
@@ -43,7 +48,8 @@ module "dcos" {
   dcos_instance_os    = "coreos_1855.5.0"
   cluster_name        = "${var.cluster_name}"
   ssh_public_key_file = "${var.ssh_public_key_file}"
-  admin_ips           = ["${data.http.whatismyip.body}/32"]
+  # admin_ips           = ["${data.http.whatismyip.body}/32"]
+  admin_ips           = ["${var.admin_ips}"]
   tags                = "${var.tags}"
 
   num_masters        = "1"

@@ -15,3 +15,4 @@ venv
 plan.out
 .terraform
 *.tfstate*
+cluster.plan
